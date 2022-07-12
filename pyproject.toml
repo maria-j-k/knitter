@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "knitter"
+version = "0.1.0"
+description = ""
+authors = ["maria <maria77julia@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+Django = "^4.0.5"
+djangorestframework = "^3.13.1"
+djoser = "^2.1.0"
+django-configurations = "^2.3.2"
+python-dotenv = "^0.20.0"
+dj-database-url = "^0.5.0"
+psycopg2-binary = "^2.9.3"
+django-extensions = "^3.2.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.1.2"
+black = "^22.3.0"
+flake8 = "^4.0.1"
+isort = "^5.10.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
