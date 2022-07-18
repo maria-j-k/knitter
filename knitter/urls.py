@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
-# from rest_framework.schemas import get_schema_view
+from rest_framework.schemas import get_schema_view
 
 from skeins import views as skein_views
 
@@ -16,9 +16,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('djoser.urls.base')),
     path('auth/', include('djoser.urls.authtoken')),
-    # path(
-#         "openapi",
-#         get_schema_view(title="Dates API", description="API", version="1.0.0"),
-#         name="openapi-schema",
-#     ),
+    path(
+        "openapi/",
+        get_schema_view(
+            title="Dates API",
+            description="API",
+            version="1.0.0",
+            authentication_classes=[],
+        ),name="openapi-schema",
+    ),
 ]

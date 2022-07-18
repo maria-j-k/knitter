@@ -49,7 +49,6 @@ class UserAdmin(BaseUserAdmin):
     form = UserChangeForm
     add_form = UserCreationForm
 
-   
     list_display = ('email',)
     fieldsets = (
         (None, {'fields': ('email', 'password')}),
@@ -64,7 +63,6 @@ class UserAdmin(BaseUserAdmin):
     search_fields = ('email',)
     ordering = ('email',)
     filter_horizontal = ()
-
 
 
 admin.site.register(User, UserAdmin)
