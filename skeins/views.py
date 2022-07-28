@@ -1,10 +1,12 @@
 from rest_framework import viewsets
+from rest_framework.permissions import AllowAny
 
 from skeins.models import Colour, Fibre, Manufacturer, Skein
 from skeins.serializers import ColourSerializer, FibreSerializer, ManufacturerSerializer, SkeinSerializer
 
 
 class ManufacturerViewset(viewsets.ModelViewSet):
+    permission_classes = [AllowAny]
     queryset = Manufacturer.objects.all()
     serializer_class = ManufacturerSerializer
 

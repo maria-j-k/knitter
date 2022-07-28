@@ -24,6 +24,7 @@ class BaseConfig(Configuration):
         'rest_framework',
         'rest_framework.authtoken',
         'djoser',
+        'corsheaders',
         'users',
         'skeins',
     ]
@@ -44,6 +45,7 @@ class BaseConfig(Configuration):
     MIDDLEWARE = [
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
+        'corsheaders.middleware.CorsMiddleware',
         'django.middleware.common.CommonMiddleware',
         'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -71,7 +73,7 @@ class BaseConfig(Configuration):
 
     WSGI_APPLICATION = 'knitter.wsgi.application'
 
-    DATABASES = {'default': dj_database_url.config(env="DATABASE_URL")}        
+    DATABASES = {'default': dj_database_url.config(env="DATABASE_URL")}
 
     AUTH_PASSWORD_VALIDATORS = [
         {
@@ -88,7 +90,8 @@ class BaseConfig(Configuration):
         },
     ]
     AUTH_USER_MODEL = 'users.User'
-
+    
+    CORS_ORIGIN_ALLOW_ALL = True
 
     LANGUAGE_CODE = 'en-us'
 
@@ -115,3 +118,7 @@ class TestEnv(BaseConfig):
 
 class Development(BaseConfig):
     DEBUG = True
+
+class LocalDevelopment(BaseConfig):
+    DEBUG = True
+    DATABASES = {'default': dj_database_url.config(env="DATABASE_LOCAL_URL")}
